@@ -1,0 +1,88 @@
+﻿@model YurtOtomasyonu.Models.mPersonel.Calisanlar
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>Sil</h2>
+<hr />
+<p>
+    Aşağıdaki personel kaydını silmek istediğinize emin misiniz?
+</p>
+
+
+
+<div class="input-group">
+    <span class="input-group-addon" id="txtAd">Ad</span>
+
+    @Html.DisplayFor(x => x.Adi, new { @class = "form-control", aria_describedby = "txtAd" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtSoyad">Soyad</span>
+
+    @Html.DisplayFor(x => x.Soyadi, new { @class = "form-control", aria_describedby = "txtSoyad" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtTC">TC</span>
+
+    @Html.DisplayFor(x => x.TC, new { @class = "form-control", aria_describedby = "txtTC" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtTel">Tel</span>
+
+    @Html.DisplayFor(x => x.Telefon, new { @class = "form-control", aria_describedby = "txtTel" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtMaas">Maaş</span>
+
+    @Html.DisplayFor(x => x.Maas, new { @class = "form-control", aria_describedby = "txtMaas" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtUnvan">Ünvan</span>
+
+    @Html.DisplayFor(x => x.Unvan, new { @class = "form-control", aria_describedby = "txtUnvan" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtAdres">Adres</span>
+
+    @Html.DisplayFor(x => x.Adres, new { @class = "form-control", aria_describedby = "txtAdres" })
+
+</div>
+<br />
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <input type="submit" value="Sil" class="btn btn-success" />
+
+
+
+
+
+
+    </div>
+    <br />
+}
+<div class=" input-group-addon" style=" border">
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-@ViewBag.Status" role="alert">
+            @ViewBag.Result
+        </div>
+    }
+
+</div>
+
+

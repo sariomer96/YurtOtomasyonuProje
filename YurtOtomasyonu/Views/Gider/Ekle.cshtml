@@ -1,0 +1,65 @@
+﻿@model YurtOtomasyonu.Models.mGiderler.Giderler
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>Ekle</h2>
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtElektrik">Elektrik</span>
+
+        @Html.TextBoxFor(x => x.elektrik, new { @class = "form-control", placeholder = "Elektrik", aria_describedby = "txtElektrik" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtSu">Su</span>
+
+        @Html.TextBoxFor(x => x.su, new { @class = "form-control", placeholder = "Su", aria_describedby = "txtSu" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtDogalgaz">Doğalgaz</span>
+
+        @Html.TextBoxFor(x => x.dogalgaz, new { @class = "form-control", placeholder = "Doğalgaz", aria_describedby = "txtDogalgaz" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtYemekhane">Yemekhane</span>
+
+        @Html.TextBoxFor(x => x.yemekhane, new { @class = "form-control", placeholder = "Yemekhane", aria_describedby = "txtYemekhane" })
+
+    </div>
+    
+    
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtMaas">Personel Maaşı</span>
+
+        @Html.TextBoxFor(x => x.calisan_maas, new { @class = "form-control", placeholder = "Personel Maaşı", aria_describedby = "txtMaas" })
+
+    </div>
+
+
+
+
+    <br />
+    <div class="input-group">
+        <input type="submit" value="Kaydet" class="btn btn-success" />
+    </div>
+    <br />
+    <div class=" input-group-addon" style=" border">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+
+    </div>
+}

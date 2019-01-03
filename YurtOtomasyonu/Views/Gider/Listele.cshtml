@@ -1,0 +1,190 @@
+﻿@using YurtOtomasyonu.ViewModels.GiderListele;
+@model  GiderListViewModel
+@{
+    ViewBag.Title = "Listele";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>Gider Listele</h2>
+
+<div class="container-fluid">
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <hr />
+
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Gider Ekle", "Ekle", "Gider", null, new { @class = "btn btn-primary" })
+
+            </div>
+            <br />
+
+            <div class="col-md-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Elektrik
+                    </li>
+                    @foreach (var gider in Model.Giderler)
+                    {
+
+                        <li class="list-group-item">
+
+
+                            @Html.ActionLink("Sil", "Sil", "Gider", new { giderID = gider.gider_ID }, new { @class = "btn btn-danger btn-xs" })
+                            @(gider.elektrik + " TL")
+
+
+
+                        </li>
+
+                    }
+                </ul>
+
+            </div>
+            <div class="col-md-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Doğalgaz
+                    </li>
+                    @foreach (var gider in Model.Giderler)
+                    {
+
+                        <li class="list-group-item">
+
+
+                            @Html.ActionLink("Giderler", "Sil", "Gider", new { giderID = gider.gider_ID }, new { @class = "btn btn-light btn-xs" })
+                            @(gider.dogalgaz + " TL")
+
+
+
+                        </li>
+
+                    }
+                </ul>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Su
+                    </li>
+                    @foreach (var gider in Model.Giderler)
+                    {
+
+                        <li class="list-group-item">
+
+
+                            @Html.ActionLink("Giderler", "Sil", "Gider", new { giderID = gider.gider_ID }, new { @class = "btn btn-light btn-xs" })
+                            @(gider.su + " 0TL")
+
+
+
+                        </li>
+
+                    }
+                </ul>
+
+            </div>
+
+            <div class="col-md-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Personel Maaş
+                    </li>
+                    @foreach (var gider in Model.Giderler)
+                    {
+
+                        <li class="list-group-item">
+
+
+                            @Html.ActionLink("Maas", "Sil", "Gider", new { giderID = gider.gider_ID }, new { @class = "btn btn-light btn-xs" })
+                            @(gider.calisan_maas + " TL")
+
+
+
+                        </li>
+
+                    }
+                </ul>
+
+            </div>
+            <div class="col-md-3">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        TARİH
+                    </li>
+                    @foreach (var gider in Model.Giderler)
+                    {
+
+                        <li class="list-group-item">
+
+
+                            @Html.ActionLink("Tarih", "Sil", "Gider", new { giderID = gider.gider_ID }, new { @class = "btn btn-light btn-xs" })
+                            @(gider.tarih)
+
+
+
+                        </li>
+
+                    }
+                </ul>
+
+            </div>
+
+
+            @*<div class="col-md-3">
+
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    TC Kimlik No
+                </li>
+                @foreach (var ogrenci in Model.Ogrenciler)
+                {
+                    <li class="list-group-item">
+                        @Html.ActionLink("TC: ", "OgrListele", "Ogrenci", new { @class = "btn btn-light btn-xs" })
+                        @(ogrenci.TC)
+                    </li>
+                }
+            </ul>
+
+        </div>*@
+
+
+
+
+
+
+            @*<div class="col-md-6">
+
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    Adres
+                </li>
+                @foreach (var ogrenci in Model.Ogrenciler)
+                {
+                    <li class="list-group-item">
+                        @Html.ActionLink("Adres: ", "OgrListele", "Ogrenci", new { @class = "btn btn-light btn-xs" })
+                        @(ogrenci.Adres)
+
+                    </li>
+                }
+            </ul>
+
+        </div>*@
+
+
+
+        </div>
+    </div>
+</div>

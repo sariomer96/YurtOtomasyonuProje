@@ -1,0 +1,75 @@
+﻿@model YurtOtomasyonu.Models.mPersonel.Calisanlar
+@{
+    ViewBag.Title = "BilgileriGuncelle";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+
+<h2>Bilgileri Güncelle</h2>
+<hr />
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtAd">Ad</span>
+
+        @Html.TextBoxFor(x => x.Adi, new { @class = "form-control", placeholder = "Personel Adı", aria_describedby = "txtAd" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtSoyad">Soyad</span>
+
+        @Html.TextBoxFor(x => x.Soyadi, new { @class = "form-control", placeholder = "Personel Soyadı", aria_describedby = "txtSoyad" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtTC">TC</span>
+
+        @Html.TextBoxFor(x => x.TC, new { @class = "form-control", placeholder = "TC Kimlik No", aria_describedby = "txtTC" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtTel">Tel</span>
+
+        @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", placeholder = "Öğrenci Telefon", aria_describedby = "txtTel" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtMaas">Maaş</span>
+
+        @Html.TextBoxFor(x => x.Maas, new { @class = "form-control", placeholder = "Maaş", aria_describedby = "txtMaas" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtUnvan">Ünvan</span>
+
+        @Html.TextBoxFor(x => x.Unvan, new { @class = "form-control", placeholder = "Ünvan", aria_describedby = "txtUnvan" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtAdres">Adres</span>
+
+        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control", placeholder = "Personel Adres", aria_describedby = "txtAdres" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <input type="submit" value="Güncelle" class="btn btn-success" />
+    </div>
+    <br />
+    <div class=" input-group-addon" style=" border">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+
+    </div>
+}

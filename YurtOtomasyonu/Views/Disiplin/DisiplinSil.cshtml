@@ -1,0 +1,47 @@
+﻿@model YurtOtomasyonu.Models.mDisiplin.Disiplin
+@{
+    ViewBag.Title = "DisiplinSil";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>DisiplinSil</h2>
+
+<div class="input-group">
+    <span class="input-group-addon" id="txtKonu">Konu</span>
+
+    @Html.DisplayFor(x => x.konu, new { @class = "form-control", aria_describedby = "txtKonu" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtAciklama">Acıklama</span>
+
+    @Html.DisplayFor(x => x.aciklama, new { @class = "form-control", aria_describedby = "txtAciklama" })
+
+</div>
+<br />
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <input type="submit" value="Sil" class="btn btn-success" />
+
+
+
+
+
+
+    </div>
+    <br />
+}
+<div class=" input-group-addon" style="border">
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-@ViewBag.Status" role="alert">
+            @ViewBag.Result
+        </div>
+    }
+
+</div>

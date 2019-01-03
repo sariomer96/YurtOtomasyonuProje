@@ -1,0 +1,87 @@
+﻿@model YurtOtomasyonu.Models.mOgrenci.Ogrenciler
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>Sil</h2>
+<hr />
+<p>
+    Aşağıdaki öğrenci kaydını silmek istediğinize emin misiniz?
+</p>
+
+
+
+<div class="input-group">
+    <span class="input-group-addon" id="txtAd">Ad</span>
+
+    @Html.DisplayFor(x => x.Adi, new { @class = "form-control", aria_describedby = "txtAd" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtSoyad">Soyad</span>
+
+    @Html.DisplayFor(x => x.Soyadi, new { @class = "form-control", aria_describedby = "txtSoyad" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtTC">TC</span>
+
+    @Html.DisplayFor(x => x.TC, new { @class = "form-control", aria_describedby = "txtTC" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtTel">Tel</span>
+
+    @Html.DisplayFor(x => x.Telefon, new { @class = "form-control", aria_describedby = "txtTel" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtVeliTel">Veli Tel</span>
+
+    @Html.DisplayFor(x => x.Veli_Tel, new { @class = "form-control", aria_describedby = "txtVeliTel" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtSinif">Sınıf</span>
+
+    @Html.DisplayFor(x => x.Kacini_Sinif, new { @class = "form-control", aria_describedby = "txtSinif" })
+
+</div>
+<br />
+<div class="input-group">
+    <span class="input-group-addon" id="txtAdres">Adres</span>
+
+    @Html.DisplayFor(x => x.Adres, new { @class = "form-control", aria_describedby = "txtAdres" })
+
+</div>
+<br />
+@using (Html.BeginForm())
+{
+
+<div class="input-group">
+    <input type="submit" value="Sil" class="btn btn-success"  />
+
+    
+
+   
+
+  
+</div>
+    <br />
+}
+<div class=" input-group-addon" style=" border">
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-@ViewBag.Status" role="alert">
+            @ViewBag.Result
+        </div>
+    }
+
+</div>

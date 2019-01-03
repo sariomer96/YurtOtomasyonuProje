@@ -1,0 +1,114 @@
+﻿@using YurtOtomasyonu.ViewModels.PersonelListele
+@model  PersonelListeleViewModel
+@{
+    ViewBag.Title = "PersonelListele";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<div class="container-fluid">
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+
+            <hr />
+
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Personel Ekle", "Ekle", "Personel", null, new { @class = "btn btn-primary" })
+
+            </div>
+            <br />
+
+            <div class="col-md-3">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Ad Soyad
+                    </li>
+                    @foreach (var calisan in Model.Calisanlar)
+                    {
+
+                        <li class="list-group-item">
+
+                            @Html.ActionLink("Düzenle", "BilgileriGuncelle", "Personel", new { personelID = calisan.personel_ID }, new { @class = "btn btn-warning btn-xs" })
+                            @Html.ActionLink("Sil", "Sil", "Personel", new { personelID = calisan.personel_ID }, new { @class = "btn btn-danger btn-xs" })
+                            @(calisan.Adi + " " + calisan.Soyadi)
+
+
+
+                        </li>
+                    }
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        TC Kimlik No
+                    </li>
+                    @foreach (var calisan in Model.Calisanlar)
+                    {
+                        <li class="list-group-item">
+                            @Html.ActionLink("TC: ", "PersonelListele", "Personel", new { @class = "btn btn-light btn-xs" })
+                            @(calisan.TC)
+                        </li>
+                    }
+                </ul>
+
+            </div>
+
+
+
+
+
+
+            <div class="col-md-2">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Maaş
+                    </li>
+                    @foreach (var calisan in Model.Calisanlar)
+                    {
+                        <li class="list-group-item">
+                            @Html.ActionLink("Maaş: ", "PersonelListele", "Personel", new { @class = "btn btn-light btn-xs" })
+                            @(calisan.Maas)
+
+                        </li>
+                    }
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Ünvan
+                    </li>
+                    @foreach (var calisan in Model.Calisanlar)
+                    {
+                        <li class="list-group-item">
+                            @Html.ActionLink("Ünvan: ", "PersonelListele", "Personel", new { @class = "btn btn-light btn-xs" })
+                            @(calisan.Unvan)
+
+                        </li>
+                    }
+                </ul>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+

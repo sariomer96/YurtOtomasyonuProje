@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YurtOtoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BORC">
+    <Key>
+      <PropertyRef Name="Borc_ID" />
+    </Key>
+    <Property Name="Borc_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Son_Odeme_Tarihi" Type="date" />
+    <Property Name="Odenecek_Tutar" Type="money" />
+    <Property Name="Toplam_Borc" Type="money" />
+    <Property Name="Vade" Type="smallint" />
+  </EntityType>
+  <EntityType Name="CALISAN">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="Adres" Type="text" />
+    <Property Name="Unvan_ID" Type="int" />
+    <Property Name="Maas" Type="money" />
+  </EntityType>
+  <EntityType Name="DISIPLIN_CEZASI">
+    <Key>
+      <PropertyRef Name="Disiplin_ID" />
+    </Key>
+    <Property Name="Disiplin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sebep" Type="text" />
+    <Property Name="Ceza_Mahiyeti" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DISIPLIN_OGRENCI">
+    <Key>
+      <PropertyRef Name="Disiplin_Ogrenci_ID" />
+    </Key>
+    <Property Name="Disiplin_Ogrenci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ogrenci_ID" Type="int" />
+    <Property Name="DisiplinID" Type="int" />
+  </EntityType>
+  <EntityType Name="Etut_Odasi">
+    <Key>
+      <PropertyRef Name="Etut_Oda_ID" />
+    </Key>
+    <Property Name="Etut_Oda_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kapasite" Type="smallint" />
+  </EntityType>
+  <EntityType Name="GIDERLER">
+    <Key>
+      <PropertyRef Name="Gider_ID" />
+    </Key>
+    <Property Name="Gider_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Elektrik" Type="money" />
+    <Property Name="Su" Type="money" />
+    <Property Name="Dogalgaz" Type="money" />
+    <Property Name="Yemekhane" Type="money" />
+    <Property Name="Calisan_Maas" Type="money" />
+  </EntityType>
+  <EntityType Name="KASA">
+    <Key>
+      <PropertyRef Name="Kasa_ID" />
+    </Key>
+    <Property Name="Kasa_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Bakiye" Type="money" />
+  </EntityType>
+  <EntityType Name="ODA">
+    <Key>
+      <PropertyRef Name="Oda_ID" />
+    </Key>
+    <Property Name="Oda_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Oda_No" Type="nchar" MaxLength="10" />
+    <Property Name="Kapasite" Type="smallint" />
+  </EntityType>
+  <EntityType Name="OGRENCI">
+    <Key>
+      <PropertyRef Name="Ogrenci_ID" />
+    </Key>
+    <Property Name="Ogrenci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Soyadi" Type="nvarchar" MaxLength="50" />
+    <Property Name="TC" Type="smallint" />
+    <Property Name="Telefon" Type="nchar" MaxLength="11" />
+    <Property Name="Veli_Tel" Type="nchar" MaxLength="11" />
+    <Property Name="Kacini_Sinif" Type="nchar" MaxLength="10" />
+    <Property Name="Oda_ID" Type="int" />
+    <Property Name="Borc_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="OGRENCI_ETUT">
+    <Key>
+      <PropertyRef Name="Ogrenci_Etut_ID" />
+    </Key>
+    <Property Name="Ogrenci_Etut_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ogrenci_ID" Type="int" />
+    <Property Name="Etut_Oda_ID" Type="int" />
+    <Property Name="Giris_Saati" Type="time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="time" Precision="7" />
+    <Property Name="Tarih" Type="date" />
+  </EntityType>
+  <EntityType Name="OGRENCI_ODA">
+    <Key>
+      <PropertyRef Name="Ogrenci_Oda_ID" />
+    </Key>
+    <Property Name="Ogrenci_Oda_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ogrenci_ID" Type="int" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="Giris_Saati" Type="time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UNVAN">
+    <Key>
+      <PropertyRef Name="Unvan_ID" />
+    </Key>
+    <Property Name="Unvan_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="YEMEKHANE">
+    <Key>
+      <PropertyRef Name="Yemekhane_ID" />
+    </Key>
+    <Property Name="Yemekhane_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Kapasite" Type="smallint" />
+  </EntityType>
+  <EntityType Name="YEMEKHANE_OGRENCI">
+    <Key>
+      <PropertyRef Name="Yemekhane_Ogrenci_ID" />
+    </Key>
+    <Property Name="Yemekhane_Ogrenci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yemekhane_ID" Type="int" />
+    <Property Name="Ogrenci_ID" Type="int" />
+    <Property Name="Giris_Saati" Type="time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="YURT_OGRENCI">
+    <Key>
+      <PropertyRef Name="Yurt_Ogrenci_ID" />
+    </Key>
+    <Property Name="Yurt_Ogrenci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ogrenci_ID" Type="int" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="Giris_Saati" Type="time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="time" Precision="7" />
+  </EntityType>
+  <Association Name="FK_CALISAN_UNVAN">
+    <End Role="UNVAN" Type="Self.UNVAN" Multiplicity="0..1" />
+    <End Role="CALISAN" Type="Self.CALISAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNVAN">
+        <PropertyRef Name="Unvan_ID" />
+      </Principal>
+      <Dependent Role="CALISAN">
+        <PropertyRef Name="Unvan_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI">
+    <End Role="DISIPLIN_CEZASI" Type="Self.DISIPLIN_CEZASI" Multiplicity="0..1" />
+    <End Role="DISIPLIN_OGRENCI" Type="Self.DISIPLIN_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISIPLIN_CEZASI">
+        <PropertyRef Name="Disiplin_ID" />
+      </Principal>
+      <Dependent Role="DISIPLIN_OGRENCI">
+        <PropertyRef Name="DisiplinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISIPLIN_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="DISIPLIN_OGRENCI" Type="Self.DISIPLIN_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="DISIPLIN_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_BORC">
+    <End Role="BORC" Type="Self.BORC" Multiplicity="0..1" />
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BORC">
+        <PropertyRef Name="Borc_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI">
+        <PropertyRef Name="Borc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ETUT_Etut_Odasi">
+    <End Role="Etut_Odasi" Type="Self.Etut_Odasi" Multiplicity="0..1" />
+    <End Role="OGRENCI_ETUT" Type="Self.OGRENCI_ETUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etut_Odasi">
+        <PropertyRef Name="Etut_Oda_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ETUT">
+        <PropertyRef Name="Etut_Oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ETUT_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="OGRENCI_ETUT" Type="Self.OGRENCI_ETUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ETUT">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ODA">
+    <End Role="ODA" Type="Self.ODA" Multiplicity="0..1" />
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODA">
+        <PropertyRef Name="Oda_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI">
+        <PropertyRef Name="Oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ODA_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="OGRENCI_ODA" Type="Self.OGRENCI_ODA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ODA">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YEMEKHANE_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="YEMEKHANE_OGRENCI" Type="Self.YEMEKHANE_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="YEMEKHANE_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YEMEKHANE_OGRENCI_YEMEKHANE">
+    <End Role="YEMEKHANE" Type="Self.YEMEKHANE" Multiplicity="0..1" />
+    <End Role="YEMEKHANE_OGRENCI" Type="Self.YEMEKHANE_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEMEKHANE">
+        <PropertyRef Name="Yemekhane_ID" />
+      </Principal>
+      <Dependent Role="YEMEKHANE_OGRENCI">
+        <PropertyRef Name="Yemekhane_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YURT_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="YURT_OGRENCI" Type="Self.YURT_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="YURT_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="YurtOtoModelStoreContainer">
+    <EntitySet Name="BORC" EntityType="Self.BORC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CALISAN" EntityType="Self.CALISAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISIPLIN_CEZASI" EntityType="Self.DISIPLIN_CEZASI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISIPLIN_OGRENCI" EntityType="Self.DISIPLIN_OGRENCI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Etut_Odasi" EntityType="Self.Etut_Odasi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIDERLER" EntityType="Self.GIDERLER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KASA" EntityType="Self.KASA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ODA" EntityType="Self.ODA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OGRENCI" EntityType="Self.OGRENCI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OGRENCI_ETUT" EntityType="Self.OGRENCI_ETUT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OGRENCI_ODA" EntityType="Self.OGRENCI_ODA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UNVAN" EntityType="Self.UNVAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEMEKHANE" EntityType="Self.YEMEKHANE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YEMEKHANE_OGRENCI" EntityType="Self.YEMEKHANE_OGRENCI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="YURT_OGRENCI" EntityType="Self.YURT_OGRENCI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CALISAN_UNVAN" Association="Self.FK_CALISAN_UNVAN">
+      <End Role="UNVAN" EntitySet="UNVAN" />
+      <End Role="CALISAN" EntitySet="CALISAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI" Association="Self.FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI">
+      <End Role="DISIPLIN_CEZASI" EntitySet="DISIPLIN_CEZASI" />
+      <End Role="DISIPLIN_OGRENCI" EntitySet="DISIPLIN_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISIPLIN_OGRENCI_OGRENCI" Association="Self.FK_DISIPLIN_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="DISIPLIN_OGRENCI" EntitySet="DISIPLIN_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_BORC" Association="Self.FK_OGRENCI_BORC">
+      <End Role="BORC" EntitySet="BORC" />
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ETUT_Etut_Odasi" Association="Self.FK_OGRENCI_ETUT_Etut_Odasi">
+      <End Role="Etut_Odasi" EntitySet="Etut_Odasi" />
+      <End Role="OGRENCI_ETUT" EntitySet="OGRENCI_ETUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ETUT_OGRENCI" Association="Self.FK_OGRENCI_ETUT_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="OGRENCI_ETUT" EntitySet="OGRENCI_ETUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ODA" Association="Self.FK_OGRENCI_ODA">
+      <End Role="ODA" EntitySet="ODA" />
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ODA_OGRENCI" Association="Self.FK_OGRENCI_ODA_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="OGRENCI_ODA" EntitySet="OGRENCI_ODA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YEMEKHANE_OGRENCI_OGRENCI" Association="Self.FK_YEMEKHANE_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="YEMEKHANE_OGRENCI" EntitySet="YEMEKHANE_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YEMEKHANE_OGRENCI_YEMEKHANE" Association="Self.FK_YEMEKHANE_OGRENCI_YEMEKHANE">
+      <End Role="YEMEKHANE" EntitySet="YEMEKHANE" />
+      <End Role="YEMEKHANE_OGRENCI" EntitySet="YEMEKHANE_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YURT_OGRENCI_OGRENCI" Association="Self.FK_YURT_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="YURT_OGRENCI" EntitySet="YURT_OGRENCI" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

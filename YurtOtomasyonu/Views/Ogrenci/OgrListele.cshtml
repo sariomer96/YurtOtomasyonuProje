@@ -1,0 +1,96 @@
+﻿@using YurtOtomasyonu.ViewModels.OgrenciListele
+@model  OgrenciListeleViewModel
+@{
+    ViewBag.Title = "OgrListele";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+
+<div class="container-fluid">
+
+
+  
+
+    <div class="row" >
+        <div class="col-md-12">
+
+            
+            <hr/>
+
+            <div>
+               &nbsp;&nbsp;&nbsp;&nbsp; @Html.ActionLink("Öğrenci Ekle", "Kaydet", "Ogrenci", null, new { @class = "btn btn-primary" })
+
+            </div>
+            <br />
+
+            <div class="col-md-3">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Ad Soyad
+                    </li>
+                    @foreach (var ogrenci in Model.Ogrenciler)
+                    {
+                        
+                    <li class="list-group-item">
+
+                        @Html.ActionLink("Düzenle", "BilgileriGuncelle", "Ogrenci", new { ogrenciID = ogrenci.Ogrenci_ID }, new { @class = "btn btn-warning btn-xs" })
+                        @Html.ActionLink("Sil", "Sil", "Ogrenci", new { ogrenciID = ogrenci.Ogrenci_ID }, new { @class = "btn btn-danger btn-xs" })
+                       
+                        @(ogrenci.Adi + " " + ogrenci.Soyadi)
+
+
+
+                    </li>
+                    }
+                </ul>
+
+            </div>
+
+
+            <div class="col-md-3">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        TC Kimlik No
+                    </li>
+                    @foreach (var ogrenci in Model.Ogrenciler)
+                    {
+                    <li class="list-group-item">
+                        @Html.ActionLink("TC: ", "OgrListele", "Ogrenci", new { @class = "btn btn-light btn-xs" })
+                        @(ogrenci.TC)
+                    </li>
+                    }
+                </ul>
+
+            </div>
+
+           
+
+            
+
+
+            <div class="col-md-6">
+
+                <ul class="list-group">
+                    <li class="list-group-item active">
+                        Adres
+                    </li>
+                    @foreach (var ogrenci in Model.Ogrenciler)
+                    {
+                    <li class="list-group-item">
+                        @Html.ActionLink("Adres: ","OgrListele", "Ogrenci", new { @class = "btn btn-light btn-xs" })
+                        @(ogrenci.Adres)
+
+                    </li>
+                    }
+                </ul>
+
+            </div>
+
+
+
+        </div>
+        </div>
+</div>
+

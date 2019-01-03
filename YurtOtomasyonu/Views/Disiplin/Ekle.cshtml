@@ -1,0 +1,53 @@
+﻿@model YurtOtomasyonu.Models.mDisiplin.Disiplin
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+}
+
+<h2>Ekle</h2>
+
+@using (Html.BeginForm())
+{
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtKonu">Konu</span>
+
+        @Html.TextBoxFor(x => x.konu, new { @class = "form-control", placeholder = "Konu", aria_describedby = "txtKonu" })
+
+    </div>
+    <br />
+    <div class="input-group">
+        <span class="input-group-addon" id="txtAciklama">Açıklama</span>
+
+        @Html.TextAreaFor(x => x.aciklama, new { @class = "form-control", placeholder = "Açıklama", rows = "15", aria_describedby = "txtAciklama" })
+
+    </div>
+    <br />
+   
+
+
+    <div class="input-group">
+        <span class="input-sm" id="ddlogrenci">Öğrenci Seçiniz</span>
+
+        @Html.DropDownListFor(x => x.Ogrenciler.Ogrenci_ID, (List<SelectListItem>)ViewBag.ogrenciler, new { @class = "form-control" , aria_describedby = "ddlogrenci" })
+
+    </div>
+
+
+
+
+    <br />
+    <div class="input-group">
+        <input type="submit" value="Kaydet" class="btn btn-success" />
+    </div>
+    <br />
+    <div class=" input-group-addon" style=" border">
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-@ViewBag.Status" role="alert">
+                @ViewBag.Result
+            </div>
+        }
+
+    </div>
+}

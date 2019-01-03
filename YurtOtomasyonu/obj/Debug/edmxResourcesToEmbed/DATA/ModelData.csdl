@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YurtOtoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BORC">
+    <Key>
+      <PropertyRef Name="Borc_ID" />
+    </Key>
+    <Property Name="Borc_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Son_Odeme_Tarihi" Type="DateTime" Precision="0" />
+    <Property Name="Odenecek_Tutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Toplam_Borc" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Vade" Type="Int16" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_OGRENCI_BORC" FromRole="BORC" ToRole="OGRENCI" />
+  </EntityType>
+  <EntityType Name="CALISAN">
+    <Key>
+      <PropertyRef Name="TC" />
+    </Key>
+    <Property Name="TC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Unvan_ID" Type="Int32" />
+    <Property Name="Maas" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="UNVAN" Relationship="Self.FK_CALISAN_UNVAN" FromRole="CALISAN" ToRole="UNVAN" />
+  </EntityType>
+  <EntityType Name="DISIPLIN_CEZASI">
+    <Key>
+      <PropertyRef Name="Disiplin_ID" />
+    </Key>
+    <Property Name="Disiplin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sebep" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Ceza_Mahiyeti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DISIPLIN_OGRENCI" Relationship="Self.FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI" FromRole="DISIPLIN_CEZASI" ToRole="DISIPLIN_OGRENCI" />
+  </EntityType>
+  <EntityType Name="DISIPLIN_OGRENCI">
+    <Key>
+      <PropertyRef Name="Disiplin_Ogrenci_ID" />
+    </Key>
+    <Property Name="Disiplin_Ogrenci_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ogrenci_ID" Type="Int32" />
+    <Property Name="DisiplinID" Type="Int32" />
+    <NavigationProperty Name="DISIPLIN_CEZASI" Relationship="Self.FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI" FromRole="DISIPLIN_OGRENCI" ToRole="DISIPLIN_CEZASI" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_DISIPLIN_OGRENCI_OGRENCI" FromRole="DISIPLIN_OGRENCI" ToRole="OGRENCI" />
+  </EntityType>
+  <EntityType Name="Etut_Odasi">
+    <Key>
+      <PropertyRef Name="Etut_Oda_ID" />
+    </Key>
+    <Property Name="Etut_Oda_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kapasite" Type="Int16" />
+    <NavigationProperty Name="OGRENCI_ETUT" Relationship="Self.FK_OGRENCI_ETUT_Etut_Odasi" FromRole="Etut_Odasi" ToRole="OGRENCI_ETUT" />
+  </EntityType>
+  <EntityType Name="GIDERLER">
+    <Key>
+      <PropertyRef Name="Gider_ID" />
+    </Key>
+    <Property Name="Gider_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Elektrik" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Su" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Dogalgaz" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Yemekhane" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Calisan_Maas" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="KASA">
+    <Key>
+      <PropertyRef Name="Kasa_ID" />
+    </Key>
+    <Property Name="Kasa_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bakiye" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ODA">
+    <Key>
+      <PropertyRef Name="Oda_ID" />
+    </Key>
+    <Property Name="Oda_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Oda_No" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Kapasite" Type="Int16" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_OGRENCI_ODA" FromRole="ODA" ToRole="OGRENCI" />
+  </EntityType>
+  <EntityType Name="OGRENCI">
+    <Key>
+      <PropertyRef Name="Ogrenci_ID" />
+    </Key>
+    <Property Name="Ogrenci_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TC" Type="Int16" />
+    <Property Name="Telefon" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Veli_Tel" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="Kacini_Sinif" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Oda_ID" Type="Int32" />
+    <Property Name="Borc_ID" Type="Int32" />
+    <NavigationProperty Name="BORC" Relationship="Self.FK_OGRENCI_BORC" FromRole="OGRENCI" ToRole="BORC" />
+    <NavigationProperty Name="DISIPLIN_OGRENCI" Relationship="Self.FK_DISIPLIN_OGRENCI_OGRENCI" FromRole="OGRENCI" ToRole="DISIPLIN_OGRENCI" />
+    <NavigationProperty Name="ODA" Relationship="Self.FK_OGRENCI_ODA" FromRole="OGRENCI" ToRole="ODA" />
+    <NavigationProperty Name="OGRENCI_ETUT" Relationship="Self.FK_OGRENCI_ETUT_OGRENCI" FromRole="OGRENCI" ToRole="OGRENCI_ETUT" />
+    <NavigationProperty Name="OGRENCI_ODA" Relationship="Self.FK_OGRENCI_ODA_OGRENCI" FromRole="OGRENCI" ToRole="OGRENCI_ODA" />
+    <NavigationProperty Name="YEMEKHANE_OGRENCI" Relationship="Self.FK_YEMEKHANE_OGRENCI_OGRENCI" FromRole="OGRENCI" ToRole="YEMEKHANE_OGRENCI" />
+    <NavigationProperty Name="YURT_OGRENCI" Relationship="Self.FK_YURT_OGRENCI_OGRENCI" FromRole="OGRENCI" ToRole="YURT_OGRENCI" />
+  </EntityType>
+  <EntityType Name="OGRENCI_ETUT">
+    <Key>
+      <PropertyRef Name="Ogrenci_Etut_ID" />
+    </Key>
+    <Property Name="Ogrenci_Etut_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ogrenci_ID" Type="Int32" />
+    <Property Name="Etut_Oda_ID" Type="Int32" />
+    <Property Name="Giris_Saati" Type="Time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="Time" Precision="7" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Etut_Odasi" Relationship="Self.FK_OGRENCI_ETUT_Etut_Odasi" FromRole="OGRENCI_ETUT" ToRole="Etut_Odasi" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_OGRENCI_ETUT_OGRENCI" FromRole="OGRENCI_ETUT" ToRole="OGRENCI" />
+  </EntityType>
+  <EntityType Name="OGRENCI_ODA">
+    <Key>
+      <PropertyRef Name="Ogrenci_Oda_ID" />
+    </Key>
+    <Property Name="Ogrenci_Oda_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ogrenci_ID" Type="Int32" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Giris_Saati" Type="Time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="Time" Precision="7" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_OGRENCI_ODA_OGRENCI" FromRole="OGRENCI_ODA" ToRole="OGRENCI" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UNVAN">
+    <Key>
+      <PropertyRef Name="Unvan_ID" />
+    </Key>
+    <Property Name="Unvan_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Unvan1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CALISAN" Relationship="Self.FK_CALISAN_UNVAN" FromRole="UNVAN" ToRole="CALISAN" />
+  </EntityType>
+  <EntityType Name="YEMEKHANE">
+    <Key>
+      <PropertyRef Name="Yemekhane_ID" />
+    </Key>
+    <Property Name="Yemekhane_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kapasite" Type="Int16" />
+    <NavigationProperty Name="YEMEKHANE_OGRENCI" Relationship="Self.FK_YEMEKHANE_OGRENCI_YEMEKHANE" FromRole="YEMEKHANE" ToRole="YEMEKHANE_OGRENCI" />
+  </EntityType>
+  <EntityType Name="YEMEKHANE_OGRENCI">
+    <Key>
+      <PropertyRef Name="Yemekhane_Ogrenci_ID" />
+    </Key>
+    <Property Name="Yemekhane_Ogrenci_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Yemekhane_ID" Type="Int32" />
+    <Property Name="Ogrenci_ID" Type="Int32" />
+    <Property Name="Giris_Saati" Type="Time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="Time" Precision="7" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_YEMEKHANE_OGRENCI_OGRENCI" FromRole="YEMEKHANE_OGRENCI" ToRole="OGRENCI" />
+    <NavigationProperty Name="YEMEKHANE" Relationship="Self.FK_YEMEKHANE_OGRENCI_YEMEKHANE" FromRole="YEMEKHANE_OGRENCI" ToRole="YEMEKHANE" />
+  </EntityType>
+  <EntityType Name="YURT_OGRENCI">
+    <Key>
+      <PropertyRef Name="Yurt_Ogrenci_ID" />
+    </Key>
+    <Property Name="Yurt_Ogrenci_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ogrenci_ID" Type="Int32" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Giris_Saati" Type="Time" Precision="7" />
+    <Property Name="Cikis_Saati" Type="Time" Precision="7" />
+    <NavigationProperty Name="OGRENCI" Relationship="Self.FK_YURT_OGRENCI_OGRENCI" FromRole="YURT_OGRENCI" ToRole="OGRENCI" />
+  </EntityType>
+  <Association Name="FK_OGRENCI_BORC">
+    <End Role="BORC" Type="Self.BORC" Multiplicity="0..1" />
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BORC">
+        <PropertyRef Name="Borc_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI">
+        <PropertyRef Name="Borc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CALISAN_UNVAN">
+    <End Role="UNVAN" Type="Self.UNVAN" Multiplicity="0..1" />
+    <End Role="CALISAN" Type="Self.CALISAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UNVAN">
+        <PropertyRef Name="Unvan_ID" />
+      </Principal>
+      <Dependent Role="CALISAN">
+        <PropertyRef Name="Unvan_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI">
+    <End Role="DISIPLIN_CEZASI" Type="Self.DISIPLIN_CEZASI" Multiplicity="0..1" />
+    <End Role="DISIPLIN_OGRENCI" Type="Self.DISIPLIN_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DISIPLIN_CEZASI">
+        <PropertyRef Name="Disiplin_ID" />
+      </Principal>
+      <Dependent Role="DISIPLIN_OGRENCI">
+        <PropertyRef Name="DisiplinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISIPLIN_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="DISIPLIN_OGRENCI" Type="Self.DISIPLIN_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="DISIPLIN_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ETUT_Etut_Odasi">
+    <End Role="Etut_Odasi" Type="Self.Etut_Odasi" Multiplicity="0..1" />
+    <End Role="OGRENCI_ETUT" Type="Self.OGRENCI_ETUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etut_Odasi">
+        <PropertyRef Name="Etut_Oda_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ETUT">
+        <PropertyRef Name="Etut_Oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ODA">
+    <End Role="ODA" Type="Self.ODA" Multiplicity="0..1" />
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODA">
+        <PropertyRef Name="Oda_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI">
+        <PropertyRef Name="Oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ETUT_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="OGRENCI_ETUT" Type="Self.OGRENCI_ETUT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ETUT">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OGRENCI_ODA_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="OGRENCI_ODA" Type="Self.OGRENCI_ODA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="OGRENCI_ODA">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YEMEKHANE_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="YEMEKHANE_OGRENCI" Type="Self.YEMEKHANE_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="YEMEKHANE_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YURT_OGRENCI_OGRENCI">
+    <End Role="OGRENCI" Type="Self.OGRENCI" Multiplicity="0..1" />
+    <End Role="YURT_OGRENCI" Type="Self.YURT_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Principal>
+      <Dependent Role="YURT_OGRENCI">
+        <PropertyRef Name="Ogrenci_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_YEMEKHANE_OGRENCI_YEMEKHANE">
+    <End Role="YEMEKHANE" Type="Self.YEMEKHANE" Multiplicity="0..1" />
+    <End Role="YEMEKHANE_OGRENCI" Type="Self.YEMEKHANE_OGRENCI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="YEMEKHANE">
+        <PropertyRef Name="Yemekhane_ID" />
+      </Principal>
+      <Dependent Role="YEMEKHANE_OGRENCI">
+        <PropertyRef Name="Yemekhane_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="YurtOtoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BORC" EntityType="Self.BORC" />
+    <EntitySet Name="CALISAN" EntityType="Self.CALISAN" />
+    <EntitySet Name="DISIPLIN_CEZASI" EntityType="Self.DISIPLIN_CEZASI" />
+    <EntitySet Name="DISIPLIN_OGRENCI" EntityType="Self.DISIPLIN_OGRENCI" />
+    <EntitySet Name="Etut_Odasi" EntityType="Self.Etut_Odasi" />
+    <EntitySet Name="GIDERLER" EntityType="Self.GIDERLER" />
+    <EntitySet Name="KASA" EntityType="Self.KASA" />
+    <EntitySet Name="ODA" EntityType="Self.ODA" />
+    <EntitySet Name="OGRENCI" EntityType="Self.OGRENCI" />
+    <EntitySet Name="OGRENCI_ETUT" EntityType="Self.OGRENCI_ETUT" />
+    <EntitySet Name="OGRENCI_ODA" EntityType="Self.OGRENCI_ODA" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="UNVAN" EntityType="Self.UNVAN" />
+    <EntitySet Name="YEMEKHANE" EntityType="Self.YEMEKHANE" />
+    <EntitySet Name="YEMEKHANE_OGRENCI" EntityType="Self.YEMEKHANE_OGRENCI" />
+    <EntitySet Name="YURT_OGRENCI" EntityType="Self.YURT_OGRENCI" />
+    <AssociationSet Name="FK_OGRENCI_BORC" Association="Self.FK_OGRENCI_BORC">
+      <End Role="BORC" EntitySet="BORC" />
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CALISAN_UNVAN" Association="Self.FK_CALISAN_UNVAN">
+      <End Role="UNVAN" EntitySet="UNVAN" />
+      <End Role="CALISAN" EntitySet="CALISAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI" Association="Self.FK_DISIPLIN_OGRENCI_DISIPLIN_CEZASI">
+      <End Role="DISIPLIN_CEZASI" EntitySet="DISIPLIN_CEZASI" />
+      <End Role="DISIPLIN_OGRENCI" EntitySet="DISIPLIN_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISIPLIN_OGRENCI_OGRENCI" Association="Self.FK_DISIPLIN_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="DISIPLIN_OGRENCI" EntitySet="DISIPLIN_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ETUT_Etut_Odasi" Association="Self.FK_OGRENCI_ETUT_Etut_Odasi">
+      <End Role="Etut_Odasi" EntitySet="Etut_Odasi" />
+      <End Role="OGRENCI_ETUT" EntitySet="OGRENCI_ETUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ODA" Association="Self.FK_OGRENCI_ODA">
+      <End Role="ODA" EntitySet="ODA" />
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ETUT_OGRENCI" Association="Self.FK_OGRENCI_ETUT_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="OGRENCI_ETUT" EntitySet="OGRENCI_ETUT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OGRENCI_ODA_OGRENCI" Association="Self.FK_OGRENCI_ODA_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="OGRENCI_ODA" EntitySet="OGRENCI_ODA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YEMEKHANE_OGRENCI_OGRENCI" Association="Self.FK_YEMEKHANE_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="YEMEKHANE_OGRENCI" EntitySet="YEMEKHANE_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YURT_OGRENCI_OGRENCI" Association="Self.FK_YURT_OGRENCI_OGRENCI">
+      <End Role="OGRENCI" EntitySet="OGRENCI" />
+      <End Role="YURT_OGRENCI" EntitySet="YURT_OGRENCI" />
+    </AssociationSet>
+    <AssociationSet Name="FK_YEMEKHANE_OGRENCI_YEMEKHANE" Association="Self.FK_YEMEKHANE_OGRENCI_YEMEKHANE">
+      <End Role="YEMEKHANE" EntitySet="YEMEKHANE" />
+      <End Role="YEMEKHANE_OGRENCI" EntitySet="YEMEKHANE_OGRENCI" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(YurtOtoModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(YurtOtoModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
