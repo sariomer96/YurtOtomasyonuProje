@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 namespace YurtOtomasyonu.Models.mPersonel
 {
     [Table("Calisanlar")]
-    public class Calisanlar
+    public class Calisanlar:mKullanici.Kullanicilar
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int personel_ID { get; set; }
@@ -24,7 +24,8 @@ namespace YurtOtomasyonu.Models.mPersonel
 
         [StringLength(11), Required]
         public string Telefon { get; set; }
-
+        
+        
 
         [StringLength(250)]
         public string Adres { get; set; }

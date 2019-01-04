@@ -22,6 +22,7 @@ namespace YurtOtomasyonu.Controllers
         public ActionResult Ekle(Calisanlar calisanlar)
         {
             DatabaseContext db = new DatabaseContext();
+
             db.Calisanlar.Add(calisanlar);
             int result = db.SaveChanges();
             if (result > 0)

@@ -14,6 +14,7 @@ namespace YurtOtomasyonu.Models.Managers
         public DbSet <mGiderler.Giderler> Giderler { get; set; }
         public DbSet <mDisiplin.Disiplin> Disiplin { get; set; }
         public DbSet <mOda.Oda> Oda { get; set; }
+        public DbSet <mKullanici.Kullanicilar> Kullanici { get; set; }
 
 
 

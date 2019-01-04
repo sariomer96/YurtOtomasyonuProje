@@ -43,6 +43,34 @@
 
 
     <br />
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtUserName">Username</span>
+
+        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control", placeholder = "Username", aria_describedby = "txtUserName" })
+
+    </div>
+
+    <br />
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtPassword">Password</span>
+
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control", placeholder = "Password", aria_describedby = "txtPassword" })
+
+    </div>
+
+    <br />
+
+    <div class="input-group">
+        <span class="input-group-addon" id="txtEmail">Email</span>
+
+        @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Email", aria_describedby = "txtEmail" })
+
+    </div>
+
+    <br />
+
     <div class="input-group">
         <span class="input-group-addon" id="txtAdres">Adres</span>
 
@@ -63,6 +91,9 @@
         @Html.TextBoxFor(x => x.Maas, new { @class = "form-control", placeholder = "Personel Maas", aria_describedby = "txtMaas" })
 
     </div>
+    <br />
+        <strong>isAdmin</strong> @Html.CheckBoxFor(x => x.isAdmin)
+    <br />
     <br />
     <div class="input-group">
         <input type="submit" value="Kaydet" class="btn btn-success" />

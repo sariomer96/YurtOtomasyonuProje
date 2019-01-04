@@ -9,7 +9,7 @@ using YurtOtomasyonu.Models.mOda;
 namespace YurtOtomasyonu.Models.mOgrenci
 {
     [Table("Ogrenciler")]
-    public class Ogrenciler
+    public class Ogrenciler:mKullanici.Kullanicilar
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Ogrenci_ID { get; set; }
@@ -33,6 +33,7 @@ namespace YurtOtomasyonu.Models.mOgrenci
 
         [StringLength(20)]
         public string KartID { get; set; }
+        
 
 
         public virtual Oda oda { get; set; }

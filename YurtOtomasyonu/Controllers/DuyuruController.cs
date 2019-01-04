@@ -72,7 +72,7 @@ namespace YurtOtomasyonu.Controllers
         }
 
         [HttpPost, ActionName("Sil")]
-        public ActionResult SilOnay(int? duyuruID)
+        public ActionResult Sill(int? duyuruID)
         {
 
 
@@ -85,7 +85,7 @@ namespace YurtOtomasyonu.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("DuyuruListele", "Duyuru");
+            return View();
         }
 
 

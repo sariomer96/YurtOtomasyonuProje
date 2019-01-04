@@ -1001,6 +1001,7 @@
     <Compile Include="Models\mDisiplin\Disiplin.cs" />
     <Compile Include="Models\mDuyuru\Duyurular.cs" />
     <Compile Include="Models\mGiderler\Giderler.cs" />
+    <Compile Include="Models\mKullanici\Kullanicilar.cs" />
     <Compile Include="Models\mOda\Oda.cs" />
     <Compile Include="Models\mOgrenci\Ogrenciler.cs" />
     <Compile Include="Models\mPersonel\Calisanlar.cs" />

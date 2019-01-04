@@ -20,6 +20,7 @@ namespace YurtOtomasyonu.Controllers
             return View();
         }
         [HttpPost]
+
         public ActionResult Kaydet(Ogrenciler ogrenciler)
         {
             DatabaseContext db = new DatabaseContext();
