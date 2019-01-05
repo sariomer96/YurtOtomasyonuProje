@@ -46,10 +46,17 @@ namespace YurtOtomasyonu.Controllers
                 return View();
             }
 
-
+            
 
         }
-    
 
-}
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/Login/Index");
+
+        }
+
+
+    }
 }
