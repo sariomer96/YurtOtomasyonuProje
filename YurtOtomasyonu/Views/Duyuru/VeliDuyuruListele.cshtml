@@ -1,11 +1,9 @@
 ﻿@using YurtOtomasyonu.ViewModels.DuyuruListele
 @model  DuyuruListeleViewModel
 @{
-    ViewBag.Title = "DuyuruListele";
-    Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
+    ViewBag.Title = "VeliDuyuruListele";
+    Layout = "~/Views/ThemeLayout/layout_veli.cshtml";
 }
-
-
 
 <div class="row">
     <div class="col-md-12">
@@ -21,25 +19,26 @@
                     <li class="list-group-item active">
                         @(dy.Konu)
                     </li>
-                   
-
-                        <li class="list-group-item">
-
-                           
-                            @Html.ActionLink("Sil", "Sil", "Duyuru", new { duyuruID = dy.Duyuru_ID }, new { @class = "btn btn-danger btn-xs" })
-                            @(dy.Duyuru)
 
 
+                    <li class="list-group-item">
 
-                        </li>
-                    
+
+                      
+                        @(dy.Duyuru)
+
+
+
+                    </li>
+
                 </ul>
 
             </div>
 
-       
+
 
 
         }
-            </div>
     </div>
+</div>
+

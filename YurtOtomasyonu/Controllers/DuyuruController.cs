@@ -55,6 +55,17 @@ namespace YurtOtomasyonu.Controllers
 
 
         }
+        public ActionResult VeliDuyuruListele()
+        {
+            DatabaseContext db = new DatabaseContext();
+
+
+
+            DuyuruListeleViewModel model = new DuyuruListeleViewModel();
+
+            model.Duyurular = db.Duyurular.ToList();
+            return View(model);
+        }
 
         public ActionResult Sil(int? duyuruID)
         {

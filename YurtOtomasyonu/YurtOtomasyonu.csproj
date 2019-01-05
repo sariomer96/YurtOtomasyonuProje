@@ -1199,6 +1199,8 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\ThemeLayout\layout_veli.cshtml" />
     <Content Include="Views\Anasayfa\VeliAnasayfa.cshtml" />
+    <Content Include="Views\Duyuru\VeliDuyuruListele.cshtml" />
+    <Content Include="Views\Ogrenci\VeliOgrenciBilgileriGuncelle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -33,13 +33,8 @@ namespace YurtOtomasyonu.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("DuyuruYap", "Duyuru");
+                    return RedirectToAction("VeliAnasayfa", "Anasayfa");
                 }
-
-                
-                    
-                
-
 
             }
            

@@ -31,7 +31,7 @@ namespace YurtOtomasyonu.Controllers
            
 
             DatabaseContext db = new DatabaseContext();
-            krt.KartGetir();
+            //krt.KartGetir();
             
 
             if (db.Kullanici.Any(x => x.UserName == ogrenciler.UserName))
@@ -151,7 +151,59 @@ namespace YurtOtomasyonu.Controllers
 
             return View();
         }
-       
+
+
+        public ActionResult VeliOgrenciBilgileriGuncelle(int? ogrenciID)
+        {
+            Ogrenciler ogr = null;
+
+            if (ogrenciID != null)
+            {
+                DatabaseContext db = new DatabaseContext();
+                ogr = db.Ogrenciler.Where(x => x.Ogrenci_ID == ogrenciID).FirstOrDefault();
+            }
+
+
+            return View(ogr);
+        }
+
+        [HttpPost]
+        public ActionResult VeliOgrenciBilgileriGuncelle(Ogrenciler model, int? ogrenciID)
+        {
+            DatabaseContext db = new DatabaseContext();
+            Ogrenciler ogr = db.Ogrenciler.Where(x => x.Ogrenci_ID == ogrenciID).FirstOrDefault();
+
+            if (ogr != null)
+            {
+                ogr.Adi = model.Adi;
+                ogr.Soyadi = model.Soyadi;
+                ogr.TC = model.TC;
+                ogr.Kacini_Sinif = model.Kacini_Sinif;
+                ogr.Telefon = model.Telefon;
+                ogr.Veli_Tel = model.Veli_Tel;
+                ogr.Adres = model.Adres;
+
+                int sonuc = db.SaveChanges();
+
+                if (sonuc > 0)
+                {
+                    ViewBag.Result = "Öğrenci Güncellenmiştir.";
+                    ViewBag.Status = "success";
+                }
+                else
+                {
+                    ViewBag.Result = "Öğrenci Güncellenememiştir.";
+                    ViewBag.Status = "danger";
+                }
+
+            }
+
+            return View();
+
+        }
+
+
+
 
 
     }
