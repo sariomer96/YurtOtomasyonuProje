@@ -11,13 +11,14 @@ namespace YurtOtomasyonu.Controllers
 {
     public class DuyuruController : Controller
     {
+        
         // GET: Duyuru
         public ActionResult DuyuruYap()
         {
 
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult DuyuruYap(Duyurular d)
         {
@@ -40,6 +41,7 @@ namespace YurtOtomasyonu.Controllers
 
             return RedirectToAction("DuyuruListele", "Duyuru");
         }
+        
 
         public ActionResult DuyuruListele()
         {
@@ -55,6 +57,7 @@ namespace YurtOtomasyonu.Controllers
 
 
         }
+        
         public ActionResult VeliDuyuruListele()
         {
             DatabaseContext db = new DatabaseContext();
@@ -66,7 +69,7 @@ namespace YurtOtomasyonu.Controllers
             model.Duyurular = db.Duyurular.ToList();
             return View(model);
         }
-
+        
         public ActionResult Sil(int? duyuruID)
         {
             Duyurular dyr = null;
@@ -81,7 +84,7 @@ namespace YurtOtomasyonu.Controllers
 
 
         }
-
+        
         [HttpPost, ActionName("Sil")]
         public ActionResult Sill(int? duyuruID)
         {

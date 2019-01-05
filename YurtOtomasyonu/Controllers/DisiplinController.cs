@@ -12,6 +12,7 @@ namespace YurtOtomasyonu.Controllers
 {
     public class DisiplinController : Controller
     {
+        
         // GET: Disiplin
         public ActionResult Ekle()
         {
@@ -32,6 +33,8 @@ namespace YurtOtomasyonu.Controllers
             return View();
         }
         [HttpPost]
+        
+
         public ActionResult Ekle(Disiplin disiplin)
         {
             DatabaseContext db = new DatabaseContext();
@@ -62,7 +65,7 @@ namespace YurtOtomasyonu.Controllers
             ViewBag.ogrenciler = TempData["ogrenciler"];
             return RedirectToAction("DisiplinListele", "Disiplin");
         }
-
+        
         public ActionResult DisiplinListele()
         {
             DatabaseContext db = new DatabaseContext();
@@ -75,6 +78,7 @@ namespace YurtOtomasyonu.Controllers
             return View(model);
             
         }
+      
 
         public ActionResult DisiplinSil(int? disiplinID)
         {
@@ -88,7 +92,7 @@ namespace YurtOtomasyonu.Controllers
 
             return View(dsp);
         }
-
+        
 
         [HttpPost, ActionName("DisiplinSil")]
         public ActionResult SilOnay(int? disiplinID)

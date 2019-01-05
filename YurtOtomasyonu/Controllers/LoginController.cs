@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using YurtOtomasyonu.Models.Managers;
 using YurtOtomasyonu.Models.mKullanici;
 
@@ -17,7 +18,7 @@ namespace YurtOtomasyonu.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(Kullanicilar kullanici)
+        public ActionResult Index(Kullanicilar kullanici, string ReturnUrl)
         {
 
             DatabaseContext db = new DatabaseContext();
@@ -29,10 +30,12 @@ namespace YurtOtomasyonu.Controllers
             {
                 if (result.isAdmin)
                 {
+                    FormsAuthentication.SetAuthCookie(kullanici.UserName, false);
                     return RedirectToAction("Home", "Anasayfa");
                 }
                 else
                 {
+                    FormsAuthentication.SetAuthCookie(kullanici.UserName, false);
                     return RedirectToAction("VeliAnasayfa", "Anasayfa");
                 }
 

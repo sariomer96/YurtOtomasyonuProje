@@ -11,11 +11,11 @@ using YurtOtomasyonu.ViewModels.OgrenciListele;
 using YurtOtomasyonu;
 namespace YurtOtomasyonu.Controllers
 {
-    
+   
     public class OgrenciController : Controller
     {
-       
-       
+
+        
         // GET: Ogrenci Kaydet
         public ActionResult Kaydet()
         {
@@ -24,7 +24,8 @@ namespace YurtOtomasyonu.Controllers
             return View();
         }
         [HttpPost]
-     public ActionResult Kaydet(Ogrenciler ogrenciler)
+        
+        public ActionResult Kaydet(Ogrenciler ogrenciler)
         {
             Kart krt = new Kart();
 

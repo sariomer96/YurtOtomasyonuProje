@@ -22,7 +22,7 @@
                 <div class="wrap-input100 validate-input" data-validate="Enter password" id="txtPassword">
 
                     @* <input class="input100" type="password" name="pass" placeholder="Password">*@
-                    @Html.TextBoxFor(x => x.Password, new { @class = "input100", placeholder = "Password", aria_describedby = "txtPassword" })
+                    @Html.TextBoxFor(x => x.Password, new { @class = "input100", type="password",placeholder = "Password", aria_describedby = "txtPassword" })
                     <span class="focus-input100" data-placeholder="&#xe80f;"></span>
                 </div>
 

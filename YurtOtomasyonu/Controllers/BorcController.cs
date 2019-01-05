@@ -9,11 +9,12 @@ namespace YurtOtomasyonu.Controllers
     public class BorcController : Controller
     {
         // GET: Borc
+        
         public ActionResult Listele()
         {
             return View();
         }
-
+       
         public ActionResult Guncelle()
         {
             return View();

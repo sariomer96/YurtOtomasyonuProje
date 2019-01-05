@@ -12,12 +12,13 @@ namespace YurtOtomasyonu.Controllers
     public class PersonelController : Controller
     {
         // GET: Personel
+        
         public ActionResult Ekle()
         {
 
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult Ekle(Calisanlar calisanlar)
         {
@@ -54,6 +55,7 @@ namespace YurtOtomasyonu.Controllers
         }
 
         [HttpPost, ActionName("Sil")]
+        
         public ActionResult SilOnay(int? personelID)
         {
 
@@ -69,7 +71,7 @@ namespace YurtOtomasyonu.Controllers
 
             return RedirectToAction("PersonelListele", "Personel");
         }
-
+        
         public ActionResult PersonelListele()
         {
             DatabaseContext db = new DatabaseContext();
@@ -83,6 +85,7 @@ namespace YurtOtomasyonu.Controllers
 
             return View(model);
         }
+        
         public ActionResult BilgileriGuncelle(int? personelID)  
         {
             Calisanlar calisan = null;
@@ -97,7 +100,7 @@ namespace YurtOtomasyonu.Controllers
             return View(calisan);
         }
 
-
+        
         [HttpPost]
         public ActionResult BilgileriGuncelle(Calisanlar model, int? personelID)
         {

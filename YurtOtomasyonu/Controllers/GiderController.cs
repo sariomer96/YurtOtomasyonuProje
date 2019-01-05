@@ -12,7 +12,7 @@ namespace YurtOtomasyonu.Controllers
     public class GiderController : Controller
     {
         // GET: Gider
-
+        
         public ActionResult Ekle()
         {
             
@@ -20,6 +20,7 @@ namespace YurtOtomasyonu.Controllers
 
         }
              [HttpPost]
+        
         public ActionResult Ekle(Giderler giderler)
         {
 
@@ -41,7 +42,7 @@ namespace YurtOtomasyonu.Controllers
 
             return View();
         }
-
+        
         public ActionResult Listele()
         {
 
@@ -54,7 +55,7 @@ namespace YurtOtomasyonu.Controllers
             model.Giderler = db.Giderler.ToList();
             return View(model);
         }
-
+        
         public ActionResult Guncelle() { 
         
 
