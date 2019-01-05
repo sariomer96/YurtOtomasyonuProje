@@ -22,12 +22,22 @@ namespace YurtOtomasyonu.Controllers
 
             DatabaseContext db = new DatabaseContext();
 
+            Kullanicilar result = db.Kullanici.Where(x => x.UserName == kullanici.UserName).FirstOrDefault();
+
             
             if (db.Kullanici.Any(x => x.UserName == kullanici.UserName) && db.Kullanici.Any(x => x.Password == kullanici.Password))
             {
+                if (result.isAdmin)
+                {
+                    return RedirectToAction("Home", "Anasayfa");
+                }
+                else
+                {
+                    return RedirectToAction("DuyuruYap", "Duyuru");
+                }
 
                 
-                    return RedirectToAction("Home", "Anasayfa");
+                    
                 
 
 
