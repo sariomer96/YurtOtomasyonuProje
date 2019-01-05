@@ -42,10 +42,7 @@ namespace YurtOtomasyonu.Controllers
 
 
             }
-            else if (db.Kullanici.Any(x => x.UserName != kullanici.UserName))
-            {
-                return View();
-            }
+           
             else
             {
                 return View();

@@ -1047,6 +1047,7 @@
     <Compile Include="Models\mDisiplin\Disiplin.cs" />
     <Compile Include="Models\mDuyuru\Duyurular.cs" />
     <Compile Include="Models\mGiderler\Giderler.cs" />
+    <Compile Include="Models\mGirisCikis\GirisCikis.cs" />
     <Compile Include="Models\mKullanici\Kullanicilar.cs" />
     <Compile Include="Models\mOda\Oda.cs" />
     <Compile Include="Models\mOgrenci\Ogrenciler.cs" />
@@ -1057,6 +1058,7 @@
     <Compile Include="ViewModels\DuyuruYap\DuyuruYapViewModel.cs" />
     <Compile Include="ViewModels\GiderListeleViewModel.cs" />
     <Compile Include="ViewModels\GiderListele\GiderListViewModel.cs" />
+    <Compile Include="ViewModels\GirisCikisListele\GirisCikisListeleViewModel.cs" />
     <Compile Include="ViewModels\OgrenciListele\OgrenciListeleViewModel.cs" />
     <Compile Include="ViewModels\PersonelListele\PersonelListeleViewModel.cs" />
   </ItemGroup>
@@ -1195,6 +1197,8 @@
     <Content Include="Views\Disiplin\DisiplinSil.cshtml" />
     <Content Include="Views\ThemeLayout\layout_login.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\ThemeLayout\layout_veli.cshtml" />
+    <Content Include="Views\Anasayfa\VeliAnasayfa.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

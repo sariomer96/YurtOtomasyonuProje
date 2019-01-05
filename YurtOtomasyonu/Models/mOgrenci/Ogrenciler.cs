@@ -40,7 +40,7 @@ namespace YurtOtomasyonu.Models.mOgrenci
 
 
         public virtual List<mDisiplin.Disiplin> Disiplin { get; set; }
-
+        public virtual List<mGirisCikis.GirisCikis> GirisCikislar { get; set; }
 
     }
 }

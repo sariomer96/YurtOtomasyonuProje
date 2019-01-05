@@ -13,5 +13,10 @@ namespace YurtOtomasyonu.Controllers
         {
             return View();
         }
+
+        public ActionResult VeliAnasayfa()
+        {
+            return View();
+        }
     }
 }

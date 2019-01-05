@@ -15,7 +15,7 @@ namespace YurtOtomasyonu.Models.Managers
         public DbSet <mDisiplin.Disiplin> Disiplin { get; set; }
         public DbSet <mOda.Oda> Oda { get; set; }
         public DbSet <mKullanici.Kullanicilar> Kullanici { get; set; }
-
+        public DbSet<mGirisCikis.GirisCikis> GirisCikislar { get; set; }
 
 
         public DatabaseContext()
