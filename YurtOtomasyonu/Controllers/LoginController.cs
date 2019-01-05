@@ -9,6 +9,7 @@ using YurtOtomasyonu.Models.mKullanici;
 
 namespace YurtOtomasyonu.Controllers
 {
+    
     public class LoginController : Controller
     {
         // GET: Login

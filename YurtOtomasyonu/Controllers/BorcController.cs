@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class BorcController : Controller
     {
         // GET: Borc

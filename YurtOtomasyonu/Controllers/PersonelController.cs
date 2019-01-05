@@ -9,6 +9,7 @@ using YurtOtomasyonu.ViewModels.PersonelListele;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class PersonelController : Controller
     {
         // GET: Personel

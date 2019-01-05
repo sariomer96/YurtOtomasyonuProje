@@ -10,6 +10,7 @@ using YurtOtomasyonu.ViewModels.DisiplinListele;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class DisiplinController : Controller
     {
         

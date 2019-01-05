@@ -9,6 +9,7 @@ using YurtOtomasyonu.ViewModels.GiderListele;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class GiderController : Controller
     {
         // GET: Gider

@@ -9,6 +9,7 @@ using YurtOtomasyonu.ViewModels.DuyuruListele;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class DuyuruController : Controller
     {
         

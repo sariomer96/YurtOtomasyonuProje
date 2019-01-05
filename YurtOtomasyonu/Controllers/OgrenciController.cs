@@ -11,7 +11,7 @@ using YurtOtomasyonu.ViewModels.OgrenciListele;
 using YurtOtomasyonu;
 namespace YurtOtomasyonu.Controllers
 {
-   
+    [Authorize]
     public class OgrenciController : Controller
     {
 

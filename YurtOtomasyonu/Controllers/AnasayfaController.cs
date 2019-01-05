@@ -7,6 +7,7 @@ using System.Web.Security;
 
 namespace YurtOtomasyonu.Controllers
 {
+    [Authorize]
     public class AnasayfaController : Controller
     {
         
