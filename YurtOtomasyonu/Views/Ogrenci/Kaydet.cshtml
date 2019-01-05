@@ -82,11 +82,26 @@
     <br />
 
     <div class="input-group">
+        <span class="input-group-addon" id="txtOdaNo">Oda No</span>
+
+        @Html.TextBoxFor(x => x.oda, new { @class = "form-control", placeholder = "Oda No", aria_describedby = "txtOdaNo" })
+
+    </div>
+
+    <br />
+
+    <div class="input-group">
         <span class="input-group-addon" id="txtAdres">Adres</span>
 
         @Html.TextBoxFor(x => x.Adres, new { @class = "form-control", placeholder = "Öğrenci Adres", aria_describedby = "txtAdres" })
 
     </div>
+
+    <br />
+
+
+
+    <br />
 
 
 
