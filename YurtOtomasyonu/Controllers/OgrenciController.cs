@@ -8,9 +8,10 @@ using YurtOtomasyonu.Models.Managers;
 using YurtOtomasyonu.Models.mKullanici;
 using YurtOtomasyonu.Models.mOgrenci;
 using YurtOtomasyonu.ViewModels.OgrenciListele;
-
+using YurtOtomasyonu;
 namespace YurtOtomasyonu.Controllers
 {
+    
     public class OgrenciController : Controller
     {
        
@@ -25,21 +26,13 @@ namespace YurtOtomasyonu.Controllers
         [HttpPost]
      public ActionResult Kaydet(Ogrenciler ogrenciler)
         {
+            Kart krt = new Kart();
 
-            SerialPort port;
+           
 
             DatabaseContext db = new DatabaseContext();
-
-            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
-            port.Open();
-            port.Write("ver"); // arduinodan kart verisi ister
-            System.Threading.Thread.Sleep(300);
-            string kart = " ";
-
-            kart = port.ReadLine();
-            port.Close();
-
-            ogrenciler.KartID = kart;
+            krt.KartGetir();
+            
 
             if (db.Kullanici.Any(x => x.UserName == ogrenciler.UserName))
             {

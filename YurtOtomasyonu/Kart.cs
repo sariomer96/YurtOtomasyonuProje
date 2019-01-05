@@ -8,21 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO.Ports;
+using YurtOtomasyonu.Models.Managers;
+using YurtOtomasyonu.Models.mOgrenci;
 
 namespace YurtOtomasyonu
 {
     public class Kart
     {
+        Ogrenciler ogr = new Ogrenciler();
+        DatabaseContext db = new DatabaseContext();
         SerialPort port;
-        public Kart()
+        public void KartGetir()
         {
-
-
-       
-        
-        
-       port = new SerialPort("COM3",9600, Parity.None,8, StopBits.One);
-        port.Open();
+            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+            port.Open();
             port.Write("ver"); // arduinodan kart verisi ister
             System.Threading.Thread.Sleep(300);
             string kart = " ";
@@ -30,14 +29,17 @@ namespace YurtOtomasyonu
             kart = port.ReadLine();
             port.Close();
 
+            ogr.KartID = kart;
+
             
 
- 
         }
+
+
+    }
        
 
 
 
     }
 
-}
