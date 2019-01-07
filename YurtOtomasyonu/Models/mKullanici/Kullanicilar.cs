@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using YurtOtomasyonu.Models.mRole;
 
 namespace YurtOtomasyonu.Models.mKullanici
 {
@@ -21,5 +22,7 @@ namespace YurtOtomasyonu.Models.mKullanici
 
         public bool isAdmin { get; set; }
 
+        
+        public virtual List<Roller> Roller { get; set; }
     }
 }

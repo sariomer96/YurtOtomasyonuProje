@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YurtOtomasyonuModelStoreContainer" CdmEntityContainer="YurtOtomasyonuEntities1">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Calisanlar">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Calisanlar">
+        <MappingFragment StoreEntitySet="Calisanlar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="personel_ID" ColumnName="personel_ID" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Maas" ColumnName="Maas" />
+          <ScalarProperty Name="Unvan" ColumnName="Unvan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Disiplin">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Disiplin">
+        <MappingFragment StoreEntitySet="Disiplin">
+          <ScalarProperty Name="disiplin_ID" ColumnName="disiplin_ID" />
+          <ScalarProperty Name="konu" ColumnName="konu" />
+          <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Ogrenciler_ID" ColumnName="Ogrenciler_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Duyurular">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Duyurular">
+        <MappingFragment StoreEntitySet="Duyurular">
+          <ScalarProperty Name="Duyuru_ID" ColumnName="Duyuru_ID" />
+          <ScalarProperty Name="Duyuru" ColumnName="Duyuru" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Giderler">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Giderler">
+        <MappingFragment StoreEntitySet="Giderler">
+          <ScalarProperty Name="gider_ID" ColumnName="gider_ID" />
+          <ScalarProperty Name="elektrik" ColumnName="elektrik" />
+          <ScalarProperty Name="su" ColumnName="su" />
+          <ScalarProperty Name="dogalgaz" ColumnName="dogalgaz" />
+          <ScalarProperty Name="yemekhane" ColumnName="yemekhane" />
+          <ScalarProperty Name="calisan_maas" ColumnName="calisan_maas" />
+          <ScalarProperty Name="tarih" ColumnName="tarih" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GirisCikis">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.GirisCikis">
+        <MappingFragment StoreEntitySet="GirisCikis">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="YurtGiris" ColumnName="YurtGiris" />
+          <ScalarProperty Name="Ogrenciler_ID" ColumnName="Ogrenciler_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="isAdmin" ColumnName="isAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oda">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Oda">
+        <MappingFragment StoreEntitySet="Oda">
+          <ScalarProperty Name="oda_ID" ColumnName="oda_ID" />
+          <ScalarProperty Name="oda_NO" ColumnName="oda_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ogrenciler">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Ogrenciler">
+        <MappingFragment StoreEntitySet="Ogrenciler">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="oda_oda_ID" ColumnName="oda_oda_ID" />
+          <ScalarProperty Name="Ogrenci_ID" ColumnName="Ogrenci_ID" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="Soyadi" ColumnName="Soyadi" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Veli_Tel" ColumnName="Veli_Tel" />
+          <ScalarProperty Name="Kacini_Sinif" ColumnName="Kacini_Sinif" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="KartID" ColumnName="KartID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="YurtOtomasyonuModel.Roles">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

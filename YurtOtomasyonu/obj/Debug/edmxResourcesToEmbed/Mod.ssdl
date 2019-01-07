@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YurtOtomasyonuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Calisanlar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="personel_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="Soyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TC" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+    <Property Name="Maas" Type="int" Nullable="false" />
+    <Property Name="Unvan" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Disiplin">
+    <Key>
+      <PropertyRef Name="disiplin_ID" />
+    </Key>
+    <Property Name="disiplin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="konu" Type="nvarchar" MaxLength="55" Nullable="false" />
+    <Property Name="aciklama" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+    <Property Name="Ogrenciler_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Duyurular">
+    <Key>
+      <PropertyRef Name="Duyuru_ID" />
+    </Key>
+    <Property Name="Duyuru_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Duyuru" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Tarih" Type="datetime" Nullable="false" />
+    <Property Name="Konu" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Giderler">
+    <Key>
+      <PropertyRef Name="gider_ID" />
+    </Key>
+    <Property Name="gider_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="elektrik" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="su" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dogalgaz" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="yemekhane" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="calisan_maas" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="tarih" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GirisCikis">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="YurtGiris" Type="datetime" Nullable="false" />
+    <Property Name="Ogrenciler_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" />
+    <Property Name="isAdmin" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oda">
+    <Key>
+      <PropertyRef Name="oda_ID" />
+    </Key>
+    <Property Name="oda_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="oda_NO" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ogrenciler">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="oda_oda_ID" Type="int" />
+    <Property Name="Ogrenci_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Soyadi" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TC" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Veli_Tel" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="Kacini_Sinif" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="250" />
+    <Property Name="KartID" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="Role" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_dbo_Calisanlar_dbo_Kullanicilar_ID">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Calisanlar" Type="Self.Calisanlar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Calisanlar">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Disiplin_dbo_Ogrenciler_Ogrenciler_ID">
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+    <End Role="Disiplin" Type="Self.Disiplin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenciler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Disiplin">
+        <PropertyRef Name="Ogrenciler_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_GirisCikis_dbo_Ogrenciler_Ogrenciler_ID">
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+    <End Role="GirisCikis" Type="Self.GirisCikis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ogrenciler">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="GirisCikis">
+        <PropertyRef Name="Ogrenciler_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ogrenciler_dbo_Kullanicilar_ID">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Ogrenciler">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Ogrenciler_dbo_Oda_oda_oda_ID">
+    <End Role="Oda" Type="Self.Oda" Multiplicity="0..1" />
+    <End Role="Ogrenciler" Type="Self.Ogrenciler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oda">
+        <PropertyRef Name="oda_ID" />
+      </Principal>
+      <Dependent Role="Ogrenciler">
+        <PropertyRef Name="oda_oda_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Roles_Kullanicilar">
+    <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanicilar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Roles">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="YurtOtomasyonuModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Calisanlar" EntityType="Self.Calisanlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Disiplin" EntityType="Self.Disiplin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Duyurular" EntityType="Self.Duyurular" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Giderler" EntityType="Self.Giderler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GirisCikis" EntityType="Self.GirisCikis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oda" EntityType="Self.Oda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ogrenciler" EntityType="Self.Ogrenciler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Calisanlar_dbo_Kullanicilar_ID" Association="Self.FK_dbo_Calisanlar_dbo_Kullanicilar_ID">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Calisanlar" EntitySet="Calisanlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Disiplin_dbo_Ogrenciler_Ogrenciler_ID" Association="Self.FK_dbo_Disiplin_dbo_Ogrenciler_Ogrenciler_ID">
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+      <End Role="Disiplin" EntitySet="Disiplin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_GirisCikis_dbo_Ogrenciler_Ogrenciler_ID" Association="Self.FK_dbo_GirisCikis_dbo_Ogrenciler_Ogrenciler_ID">
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+      <End Role="GirisCikis" EntitySet="GirisCikis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ogrenciler_dbo_Kullanicilar_ID" Association="Self.FK_dbo_Ogrenciler_dbo_Kullanicilar_ID">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Ogrenciler_dbo_Oda_oda_oda_ID" Association="Self.FK_dbo_Ogrenciler_dbo_Oda_oda_oda_ID">
+      <End Role="Oda" EntitySet="Oda" />
+      <End Role="Ogrenciler" EntitySet="Ogrenciler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Roles_Kullanicilar" Association="Self.FK_Roles_Kullanicilar">
+      <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+      <End Role="Roles" EntitySet="Roles" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

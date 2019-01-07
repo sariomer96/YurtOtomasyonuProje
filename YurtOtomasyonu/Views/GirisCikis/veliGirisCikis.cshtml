@@ -1,0 +1,27 @@
+﻿@using YurtOtomasyonu.ViewModels.GirisCikisListele
+@model  GirisCikisListeleViewModel
+@{
+    ViewBag.Title = "veliGirisCikis";
+    Layout = "~/Views/ThemeLayout/layout_veli.cshtml";
+}
+
+
+
+<div class="col-md-3">
+    <ul class="list-group">
+        <li class="list-group-item active">
+           
+        </li>
+        
+        @foreach (var giris in Model.GirisCikislar)
+        {
+
+            <li class="list-group-item">
+               
+
+                @(giris.YurtGiris)
+
+            </li>
+        }
+    </ul>
+</div>

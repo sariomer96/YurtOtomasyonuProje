@@ -13,7 +13,7 @@ namespace YurtOtomasyonu.Controllers
     public class PersonelController : Controller
     {
         // GET: Personel
-        
+        [Authorize(Roles ="admin")]
         public ActionResult Ekle()
         {
 
