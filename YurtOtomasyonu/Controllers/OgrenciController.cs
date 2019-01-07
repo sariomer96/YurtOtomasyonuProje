@@ -15,35 +15,45 @@ namespace YurtOtomasyonu.Controllers
     public class OgrenciController : Controller
     {
 
-        
+
         // GET: Ogrenci Kaydet
         public ActionResult Kaydet()
         {
-            
-            
+
+
             return View();
         }
         [HttpPost]
-        
+
         public ActionResult Kaydet(Ogrenciler ogrenciler)
         {
             Kart krt = new Kart();
 
-           
+            SerialPort port;
 
             DatabaseContext db = new DatabaseContext();
-            //krt.KartGetir();
-            
+            // krt.KartGetir();
+            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+            port.Open();
+            port.Write("ver"); // arduinodan kart verisi ister
+            System.Threading.Thread.Sleep(300);
+            string kart = " ";
+
+            kart = port.ReadLine();
+            port.Close();
+
+            ogrenciler.KartID = kart;
+
 
             if (db.Kullanici.Any(x => x.UserName == ogrenciler.UserName))
             {
                 ViewBag.Duplicate = "Kullanici zaten var.";
                 return View("Kaydet", ogrenciler);
             }
-           
+
 
             db.Ogrenciler.Add(ogrenciler);
-            
+
             int result = db.SaveChanges();
             if (result > 0)
             {
@@ -64,14 +74,14 @@ namespace YurtOtomasyonu.Controllers
             DatabaseContext db = new DatabaseContext();
 
 
-            
+
             OgrenciListeleViewModel model = new OgrenciListeleViewModel();
 
             model.Ogrenciler = db.Ogrenciler.ToList();
             return View(model);
         }
-      
-    public ActionResult Listele()
+
+        public ActionResult Listele()
         {
             return View();
         }
@@ -80,7 +90,7 @@ namespace YurtOtomasyonu.Controllers
         {
             Ogrenciler ogr = null;
 
-            if(ogrenciID != null)
+            if (ogrenciID != null)
             {
                 DatabaseContext db = new DatabaseContext();
                 ogr = db.Ogrenciler.Where(x => x.Ogrenci_ID == ogrenciID).FirstOrDefault();
@@ -89,10 +99,10 @@ namespace YurtOtomasyonu.Controllers
             return View(ogr);
         }
 
-        [HttpPost,ActionName("Sil")]
+        [HttpPost, ActionName("Sil")]
         public ActionResult SilOnay(int? ogrenciID)
         {
-            
+
 
             if (ogrenciID != null)
             {
@@ -110,7 +120,7 @@ namespace YurtOtomasyonu.Controllers
         {
             Ogrenciler ogr = null;
 
-            if(ogrenciID != null)
+            if (ogrenciID != null)
             {
                 DatabaseContext db = new DatabaseContext();
                 ogr = db.Ogrenciler.Where(x => x.Ogrenci_ID == ogrenciID).FirstOrDefault();
@@ -125,7 +135,7 @@ namespace YurtOtomasyonu.Controllers
             DatabaseContext db = new DatabaseContext();
             Ogrenciler ogr = db.Ogrenciler.Where(x => x.Ogrenci_ID == ogrenciID).FirstOrDefault();
 
-            if(ogr != null)
+            if (ogr != null)
             {
                 ogr.Adi = model.Adi;
                 ogr.Soyadi = model.Soyadi;
@@ -203,8 +213,11 @@ namespace YurtOtomasyonu.Controllers
 
         }
 
+        
+        
+        
 
-
+            
 
 
     }

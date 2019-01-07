@@ -1030,6 +1030,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\kartGetirr.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AnasayfaController.cs" />
     <Compile Include="Controllers\BorcController.cs" />
@@ -1201,6 +1202,7 @@
     <Content Include="Views\Anasayfa\VeliAnasayfa.cshtml" />
     <Content Include="Views\Duyuru\VeliDuyuruListele.cshtml" />
     <Content Include="Views\Ogrenci\VeliOgrenciBilgileriGuncelle.cshtml" />
+    <Content Include="Views\ThemeLayout\layout_veli_duyuru.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
