@@ -3,4 +3,14 @@
     ViewBag.Title = "Home";
     Layout = "~/Views/ThemeLayout/layout_one_theme.cshtml";
 }
+  
 
+@using (Html.BeginForm("Home", "Anasayfa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div>
+    @ViewBag.Path
+    <li><input type="file" name="photo" /></li>
+    <li><input type="submit" value="Upload" /></li>
+
+</div>
+}

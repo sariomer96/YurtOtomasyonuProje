@@ -32,17 +32,17 @@ namespace YurtOtomasyonu.Controllers
             SerialPort port;
 
             DatabaseContext db = new DatabaseContext();
-            // krt.KartGetir();
-            //port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
-            //port.Open();
-            //port.Write("ver"); // arduinodan kart verisi ister
-            //System.Threading.Thread.Sleep(300);
-            //string kart = " ";
+            krt.KartGetir();
+            port = new SerialPort("COM3", 9600, Parity.None, 8, StopBits.One);
+            port.Open();
+            port.Write("ver"); // arduinodan kart verisi ister
+            System.Threading.Thread.Sleep(300);
+            string kart = " ";
 
-            //kart = port.ReadLine();
-            //port.Close();
+            kart = port.ReadLine();
+            port.Close();
 
-            //ogrenciler.KartID = kart;
+            ogrenciler.KartID = kart;
 
 
             if (db.Kullanici.Any(x => x.UserName == ogrenciler.UserName))

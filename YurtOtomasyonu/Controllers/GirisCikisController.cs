@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YurtOtomasyonu.Models.Managers;
+using YurtOtomasyonu.ViewModels.GirisCikisListele;
+using YurtOtomasyonu.ViewModels.OgrenciListele;
 
 namespace YurtOtomasyonu.Controllers
 {
@@ -11,7 +14,15 @@ namespace YurtOtomasyonu.Controllers
         // GET: GirisCikis
         public ActionResult veliGirisCikis()
         {
-            return View();
+
+            DatabaseContext db = new DatabaseContext();
+
+
+
+            GirisCikisListeleViewModel model = new GirisCikisListeleViewModel();
+
+            model.GirisCikislar = db.GirisCikislar.ToList();
+            return View(model);
         }
     }
 }
